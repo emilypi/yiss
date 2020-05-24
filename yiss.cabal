@@ -39,7 +39,9 @@ common tuning-flags
 
 library
   import:           warning-flags
-  exposed-modules:  MyLib
+
+  exposed-modules:  Yiss
+                    Yiss.Config
 
   -- other-modules:
   -- other-extensions:
@@ -55,6 +57,7 @@ library
     , HTTP
     , lens
     , mtl
+    , network
     , parsec
     , regex-tdfa
     , text
@@ -70,8 +73,6 @@ library
 
 executable yiss
   main-is:          Main.hs
-
-  other-modules:    Yiss.Options
 
   build-depends:
     , base                  >=4.12 && <4.15
