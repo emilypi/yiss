@@ -1,4 +1,7 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "default", doBenchmark ? false }:
+{ nixpkgs ? import <nixpkgs> {}
+, compiler ? "default"
+, doBenchmark ? false
+}:
 
 let
 
@@ -6,7 +9,7 @@ let
 
   f = { mkDerivation, base, binary, bytestring, containers
       , directory, edit-distance, filepath, hashable, HTTP, lens, mtl
-      , optparse-applicative, parsec, regex-tdfa, stdenv, text
+      , network, optparse-applicative, parsec, regex-tdfa, stdenv, text
       , transformers, unix
       }:
       mkDerivation {
@@ -17,7 +20,8 @@ let
         isExecutable = true;
         libraryHaskellDepends = [
           base binary bytestring containers directory edit-distance filepath
-          hashable HTTP lens mtl parsec regex-tdfa text transformers unix
+          hashable HTTP lens mtl network parsec regex-tdfa text transformers
+          unix
         ];
         executableHaskellDepends = [
           base bytestring directory filepath optparse-applicative text unix

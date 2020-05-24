@@ -8,9 +8,14 @@ import Yiss.Config
 main :: IO ()
 main = awwYiss =<< execParser yissOpts
 
+-- | Main driver for the bot
+--
 awwYiss :: YissConfig -> IO ()
 awwYiss _ = return ()
 
+
+-- | Full option info for 'YissConfig'
+--
 yissOpts :: ParserInfo YissConfig
 yissOpts = info (pYissConfig <**> helper)
     ( fullDesc
