@@ -1,8 +1,8 @@
 module Main where
 
-import qualified MyLib (someFunc)
+
+import Yiss.Options
+
 
 main :: IO ()
-main = do
-  putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+main = putStrLn "Hello, Haskell!"

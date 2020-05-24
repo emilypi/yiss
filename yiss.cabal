@@ -32,6 +32,11 @@ common warning-flags
     -Wincomplete-uni-patterns -Widentities -funclutter-valid-hole-fits
     -fmax-relevant-binds=0
 
+common tuning-flags
+  ghc-options:
+    -ddump-simpl -ddump-to-file -dsuppress-coercions
+    -dsuppress-module-prefixes -dsuppress-type-applications
+
 library
   import:           warning-flags
   exposed-modules:  MyLib
@@ -66,8 +71,8 @@ library
 executable yiss
   main-is:          Main.hs
 
-  -- other-modules:
-  -- other-extensions:
+  other-modules:    Yiss.Options
+
   build-depends:
     , base                  >=4.12 && <4.15
     , bytestring
