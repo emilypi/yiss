@@ -39,9 +39,9 @@ common tuning-flags
 
 library
   import:           warning-flags
-
-  exposed-modules:  Yiss
-                    Yiss.Config
+  exposed-modules:
+    Yiss
+    Yiss.Config
 
   -- other-modules:
   -- other-extensions:
@@ -68,13 +68,12 @@ library
   default-language: Haskell2010
 
   if flag(ghc-flags)
-    build-tool-depends: hsinspect:hsinspect
-    ghc-options:   -fplugin GhcFlags.Plugin
-    build-depends: ghcflags
+    build-tool-depends: hsinspect:hsinspect -any
+    ghc-options:        -fplugin GhcFlags.Plugin
+    build-depends:      ghcflags
 
 executable yiss
   main-is:          Main.hs
-
   build-depends:
     , base                  >=4.12 && <4.15
     , bytestring
